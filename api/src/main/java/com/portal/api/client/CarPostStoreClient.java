@@ -38,7 +38,7 @@ public class CarPostStoreClient {
     }
 
 
-    public void removeCarForSaleClient(String id) {
+    public void deleteCarForSaleClient(String id) {
         restTemplate.delete(POST_STORE_SERVICE_URI + "/car" + id);
     }
 }
