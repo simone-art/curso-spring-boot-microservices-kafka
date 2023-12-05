@@ -21,7 +21,9 @@ public class CarPostDto {
     private String engineVersion;
     private String city;
     private String createDate;
-    private long ownerId;
-    private long ownerName;
+    private Long ownerId;
+    private String ownerName;
+    private String ownerType;
+    private String contact;
 
 }
