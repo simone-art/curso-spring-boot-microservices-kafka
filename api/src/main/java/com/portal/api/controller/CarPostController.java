@@ -1,6 +1,7 @@
 package com.portal.api.controller;
 
 import com.portal.api.dto.CarPostDto;
+import com.portal.api.message.KafkaProducerMessage;
 import com.portal.api.service.CarPostStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +17,18 @@ public class CarPostController {
     @Autowired
     private CarPostStoreService carPostStoreService;
 
+    @Autowired
+    private KafkaProducerMessage kafkaProducerMessage;
+
     @GetMapping
     public ResponseEntity<List<CarPostDto>> getCarSales(){
         return ResponseEntity.status(HttpStatus.FOUND).body(carPostStoreService.getAllCarForSales());
+    }
+
+    @PostMapping("/post")
+    public ResponseEntity postCarForSale (@RequestBody CarPostDto carPostDto){
+        kafkaProducerMessage.sendMessage(carPostDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

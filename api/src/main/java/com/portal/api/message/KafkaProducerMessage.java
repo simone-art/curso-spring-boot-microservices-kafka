@@ -16,7 +16,7 @@ public class KafkaProducerMessage {
     private final String KAFKA_TOPIC = "car-post-topic";
 
     public void sendMessage(CarPostDto carPostDto){
-        kafkaTemplate.send(KAFKA_TOPIC, carPostDto); 
+        kafkaTemplate.send(KAFKA_TOPIC, carPostDto);
 
     }
 }
