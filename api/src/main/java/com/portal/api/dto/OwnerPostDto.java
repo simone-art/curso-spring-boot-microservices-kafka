@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude
 public class OwnerPostDto {
 
+
     private String name;
     private String type;
     private String contactNumber;

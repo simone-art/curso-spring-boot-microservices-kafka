@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import javax.websocket.ClientEndpoint;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Objects;
 @Component
 public class CarPostStoreClient {
 
-    private final String USER_STORE_SERVICE_URI = "http://localhost:8080/users";
+    private final String USER_STORE_SERVICE_URI = "http://localhost:8080/user";
     private final String POST_STORE_SERVICE_URI = "http://localhost:8080/sales";
 
     @Autowired

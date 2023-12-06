@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/car")
+@RequestMapping(path="/api/car")
 public class CarPostController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class CarPostController {
     @Autowired
     private KafkaProducerMessage kafkaProducerMessage;
 
-    @GetMapping
+    @GetMapping("/post")
     public ResponseEntity<List<CarPostDto>> getCarSales(){
         return ResponseEntity.status(HttpStatus.FOUND).body(carPostStoreService.getAllCarForSales());
     }
